@@ -1,4 +1,4 @@
-import Phaser from 'phaser';
+import Phaser, { Game } from 'phaser';
 import sky from './assets/sky.png';
 import dude from './assets/dude.png';
 import platform from './assets/platform.png';
@@ -28,6 +28,10 @@ class MyGame extends Phaser.Scene {
 
   create() {
     this.add.image(400, 300, "sky"); // 添加背景
+    this.add.arc(200, 200, 20, 0, 180, false, 0xff0000) // 添加一个弧线
+    // this.add.bitmapText(400, 400, 'BMFont', '你是个麻瓜', 20, 12) // 添加一段文字  可以设置字体
+    // this.add.blitter(400, 400, 'bomb', []) // 没懂什么意思
+    // ... 后续的看文档吧  api 没意思
 
     // 平台
     this.platforms = this.physics.add.staticGroup(); // 添加平台
