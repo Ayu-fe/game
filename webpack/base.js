@@ -6,8 +6,15 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 module.exports = {
   mode: "development",
   devtool: "eval-source-map",
+  entry: {
+    main: "./src/index.ts",
+  },
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader'
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -36,5 +43,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./index.html"
     })
-  ]
+  ],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src')
+    },
+    extensions: [".ts", ".js"]
+  }
 };
