@@ -1,4 +1,4 @@
-import Phaser from "phaser";
+import Phaser, { Display } from "phaser";
 import { CST } from "../CST";
 
 export class MenuScene extends Phaser.Scene {
@@ -30,6 +30,7 @@ export class MenuScene extends Phaser.Scene {
          * pointerout
          * pointerup    单击弹起后触发
          * pointerdown  单击出发
+         * pointermove  鼠标移动事件
          */
         play_btn.on('pointerover', () => { // 监听事件
             cat_hover.setVisible(true)
@@ -39,6 +40,9 @@ export class MenuScene extends Phaser.Scene {
         })
         play_btn.on('pointerout', () => { 
             cat_hover.setVisible(false)
+        })
+        play_btn.on('pointerup', () => { 
+            this.scene.start(CST.SCENE.PLAY)
         })
         option_btn.on('pointerover', () => {
             console.log(13)
@@ -53,7 +57,7 @@ export class MenuScene extends Phaser.Scene {
 
         // 播放音乐
         // this.sound.pauseOnBlur = false
-        // this.sound.play('title_music', { loop: true })
+        // this.sound.play(CST.AUDIO.TITLE, { loop: true })
 
 
         // 动画

@@ -33,11 +33,19 @@ export class LoadScene extends Phaser.Scene {
         }
     }
     preload() {
+
+        this.load.spritesheet('anna', 'src/assets/sprite/anna.png', {
+            frameWidth: 64,
+            frameHeight: 64
+        })
+        this.load.atlas('characters', 'src/assets/sprite/characters.png', 'src/assets/sprite/characters.json')
+        this.load.atlas('daze', 'src/assets/sprite/daze.png', 'src/assets/sprite/daze.json')
+
         this.loadImage()
         this.loadAudio()
         this.loadSprite({
             frameWidth: 32,
-            frameHeight: 32
+            frameHeight: 32,
         })
         // 制作进度条
         let loadingBar = this.add.graphics({ // 生成一个图形
